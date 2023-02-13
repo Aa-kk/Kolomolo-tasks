@@ -3,10 +3,10 @@
 
  When you apply the infrastructure.tf file, it creates the dynamodb table, api and methods, necessary permissions/policies for the services to interact with each other and other resources needed for the infrastructure to work and then outputs the api url to the console
 
-## How to invoke api
+## How it works
  The api has two methods, POST and GET. To invoke the api you can make use of curl from the terminal or any other tool of your choice like postman or insommia
 
-### POST method
+### 1. POST method
 To use the POST method, you can do:  
 `curl -X POST <API URL> -d '<BODY>'`     
 
@@ -14,19 +14,19 @@ The `API URL` is the url address for the API, for my already deployed solution i
 
 The `BODY` has to be in this format`{"firstname":"<name>", "age":<number>}`  
 
-#### Sample invocation 
-Here's a sample of an invocation   
-`curl -X POST https://7lxgpzc6d6.execute-api.eu-central-1.amazonaws.com/dev -d '{"firstname":"Fred", "age":28}'`   
+### Sample invocation    
+`curl -X POST https://7lxgpzc6d6.execute-api.eu-central-1.amazonaws.com/dev -d '{"firstname":"Fred", "age":28}'`  
+
 Which would return a success message including string of characters which represent the user_id which in this example scenario is `5a6ed560-9112-4759-b977-3d2f52fa5abf`  
 
 
-### GET Method
+### 2. GET Method
 To use the GET method you can do:  
 `curl -X GET <API URL>/<user_id>`   
 
-Configured the method to accept a path which represents the user_id of the person you want to query.   
+The method was configured to accept a path which represents the user_id of the person you want to query.   
 
-#### Sample invocation
+### Sample invocation
 `curl -X GET https://7lxgpzc6d6.execute-api.eu-central-1.amazonaws.com/dev/5a6ed560-9112-4759-b977-3d2f52fa5abf` 
 
-GET method returns an error if an invalid user_id is queried.
+#### NB GET method returns an error if an invalid user_id is queried.
