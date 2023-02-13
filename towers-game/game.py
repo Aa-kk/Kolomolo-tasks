@@ -1,6 +1,6 @@
 # Reading the input file and passing the data into a list of tuples 
-def read_input():
-    input_file = input("Welcome to the Hanoi Towers game please insert the name of your input file: ")
+def read_input(input_file):
+    
     f = open(input_file, "r")        
     game_data = []
     for line in f:
@@ -52,13 +52,14 @@ def test_move(init_start_tower, end_tower, current_move):
         if init_start_tower == end_tower:
             raise GameOver(f"You win !!!, you finished the game with {current_move} moves !!!")
         if new_disc < last_disc:
-            raise GameOver(f"Illegal move after move {current_move}!!!, you have failed the game")
+            raise GameOver(f"Illegal move after move {current_move}!!!, you have failed the game !!!")
 
 
 
 def main():
+    input_file = input("Welcome to the Hanoi Towers game please insert the name of your input file: ")
     # Setting the gamestate
-    game_data = read_input()
+    game_data = read_input(input_file)
     print(game_data)
     no_of_discs = game_data[0][0]        
     no_of_towers = game_data[0][1]
