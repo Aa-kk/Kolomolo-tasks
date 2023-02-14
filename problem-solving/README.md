@@ -29,9 +29,11 @@ This doesn't truly restrict access to the method though because you can still ca
 # Issues with the Problem_solving code 
 1. First we had a syntax error on line 17 we had the "==" which is a python operator for comparison ie (If a == b) and we used it to assign a the age object to the class. 
 
-2. Secondly on line 18 we had a type error for "self.increase_count()" because you forgot to specify the self argument in the definition of the increase_count class method.
+2. Secondly on line 18 we had a type error for "self.increase_count()" because you forgot to specify the self argument in the definition of the increase_count class method on line 25.
 
 3. On line 45 we have another syntax error as it is supposed to be `__main__` and not `main`.
 
 4. On line 32 the order in which the class properties were being assigned in line 14 was not followed.
+
+5. To print the number of people created last I used a thread.join method to wait for all threads to finish executing before the print command is excecuted.
 
